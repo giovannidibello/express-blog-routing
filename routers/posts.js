@@ -2,14 +2,17 @@
 const express = require('express')
 const router = express.Router();
 
+// importo l'array dei post
+const posts = require("../data/posts");
+
 // index
 router.get('/', function (req, res) {
-    res.send('Lista dei post');
+    res.json(posts)
 });
 
 // show
-router.get('/:id', function (req, res) {
-    res.send('Dettagli del post ' + req.params.id);
+router.get('/:id', function (req, res) {    
+    res.json(posts[req.params.id])
 });
 
 // store
